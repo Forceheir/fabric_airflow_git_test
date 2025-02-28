@@ -1,0 +1,29 @@
+config:
+  partial_parse: true
+MS_SQL:
+  target: fabric_dev
+  outputs:
+    ADMIN:
+      type: sqlserver
+      driver: "ODBC Driver 18 for SQL Server"
+      server: sql_server
+      port: 1433
+      database: master
+      schema: dbo
+      threads: 4
+      user: sa
+      trust_cert : True
+      PWD: "Resistance_Is_Futile"
+      Encrypt: True
+    WORKER:
+      type: sqlserver
+      driver: "ODBC Driver 18 for SQL Server"
+      server: sql_server
+      port: 1433
+      database: Test_DB
+      schema: dbo
+      threads: 4
+      user: sa
+      trust_cert : True
+      PWD: "Resistance_Is_Futile"
+      Encrypt: True
