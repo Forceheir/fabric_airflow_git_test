@@ -33,7 +33,7 @@ with DAG(
     jaffle_shop = DbtTaskGroup(
         group_id="jaffle_shop",
         project_config=ProjectConfig(DBT_ROOT_PATH,),
-        execution_config=ExecutionConfig(execution_mode="local"),
+        execution_config=ExecutionConfig(execution_mode=ExecutionMode.AZURE_CONTAINER_INSTANCE),
         operator_args={"install_deps": True},
         profile_config=profile_config,
         default_args={"retries": 0},
