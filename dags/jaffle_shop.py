@@ -32,7 +32,7 @@ with DAG(
 
     jaffle_shop = DbtTaskGroup(
         group_id="jaffle_shop",
-        project_config=ProjectConfig((DBT_ROOT_PATH).as_posix(),),
+        project_config=ProjectConfig(DBT_ROOT_PATH,),
         operator_args={"install_deps": True},
         profile_config=profile_config,
         default_args={"retries": 0},
