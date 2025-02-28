@@ -8,7 +8,7 @@ from pendulum import datetime
 from cosmos import DbtDag, DbtTaskGroup, ProjectConfig, ProfileConfig, ExecutionConfig
 from cosmos.profiles import PostgresUserPasswordProfileMapping
 
-DEFAULT_DBT_ROOT_PATH = Path(__file__).parent / "dbt"
+DEFAULT_DBT_ROOT_PATH = Path(__file__).parent.parent / "dags" 
 DBT_ROOT_PATH = Path(os.getenv("DBT_ROOT_PATH", DEFAULT_DBT_ROOT_PATH))
 
 profile_config = ProfileConfig(
@@ -32,11 +32,7 @@ with DAG(
 
     jaffle_shop = DbtTaskGroup(
         group_id="jaffle_shop",
-        project_config=ProjectConfig(
-            (DBT_ROOT_PATH).as_posix(),
-        ),
-        execution_config=ExecutionConfig(
-            dbt_executable_path="/usr/local/airflow/dbt_venv/bin/dbt"),
+        project_config=ProjectConfig((DBT_ROOT_PATH).as_posix(),),
         operator_args={"install_deps": True},
         profile_config=profile_config,
         default_args={"retries": 0},
