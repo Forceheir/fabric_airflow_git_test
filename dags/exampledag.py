@@ -23,6 +23,7 @@ first DAG tutorial: https://www.astronomer.io/docs/learn/get-started-with-airflo
 from airflow import Dataset
 from airflow.decorators import dag, task
 from pendulum import datetime
+from typing import List
 import requests
 
 
@@ -41,7 +42,7 @@ def example_astronauts():
         # Define a dataset outlet for the task. This can be used to schedule downstream DAGs when this task has run.
         outlets=[Dataset("current_astronauts")]
     )  # Define that this task updates the `current_astronauts` Dataset
-    def get_astronauts(**context) -> list[dict]:
+    def get_astronauts(**context) -> List[dict]:
         """
         This task uses the requests library to retrieve a list of Astronauts
         currently in space. The results are pushed to XCom with a specific key
