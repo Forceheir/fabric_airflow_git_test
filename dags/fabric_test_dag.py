@@ -5,7 +5,7 @@ from cosmos import DbtDag, ProjectConfig, ProfileConfig, ExecutionConfig
 from airflow.operators.bash import BashOperator
 
 
-DEFAULT_DBT_ROOT_PATH = Path(__file__).parent.parent / "dags" / "nyc_taxi_green"
+DEFAULT_DBT_ROOT_PATH = Path(__file__).parent.parent / "dags" /"dbt"
 DBT_ROOT_PATH = Path(os.getenv("DBT_ROOT_PATH", DEFAULT_DBT_ROOT_PATH))
 profile_config = ProfileConfig(
      profile_name="MS_SQL",
