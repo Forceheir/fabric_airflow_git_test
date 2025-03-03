@@ -22,5 +22,5 @@ dbt_fabric_dag = DbtDag(
      start_date=datetime(2023, 9, 10),
      catchup=False,
      dag_id="dbt_fabric_dag",
-     tags=["fabric_test"]
+     tags=["fabric_test"],
 )
