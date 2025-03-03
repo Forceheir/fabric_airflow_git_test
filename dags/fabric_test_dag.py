@@ -15,6 +15,7 @@ profile_config = ProfileConfig(
 
 dbt_fabric_dag = DbtDag(
      project_config=ProjectConfig(DBT_ROOT_PATH,),
+     default_args={"owner": "Airflow", "retries": 0},
      operator_args={"install_deps": True},
      profile_config=profile_config,
      schedule_interval="@daily",
