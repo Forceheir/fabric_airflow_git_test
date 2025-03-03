@@ -8,7 +8,7 @@ from airflow.operators.bash import BashOperator
 DEFAULT_DBT_ROOT_PATH = Path(__file__).parent.parent / "dags" / "nyc_taxi_green"
 DBT_ROOT_PATH = Path(os.getenv("DBT_ROOT_PATH", DEFAULT_DBT_ROOT_PATH))
 profile_config = ProfileConfig(
-     profile_name="nyc_taxi_green",
+     profile_name="MS_SQL",
      target_name="fabric-dev",
      profiles_yml_filepath=DBT_ROOT_PATH / "profiles.yml",
 )
