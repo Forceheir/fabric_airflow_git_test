@@ -3,18 +3,17 @@ config:
 MS_SQL:
   target: fabric_dev
   outputs:
-    ADMIN:
+    fabric-dev:
       type: sqlserver
       driver: "ODBC Driver 18 for SQL Server"
-      server: sql_server
+      server: zzjktszqxceerlmghxflm2u6iq-tbfetgyuw7aerne2fomuteligu.datawarehouse.fabric.microsoft.com
       port: 1433
-      database: master
-      schema: dbo
+      database: "DWH_DBT_Test"
+      schema: "dbo"
       threads: 4
-      user: sa
-      trust_cert : True
-      PWD: "Resistance_Is_Futile"
-      Encrypt: True
+      authentication: "ActiveDirectoryPassword"
+      user: kadlecp@ans.cz
+      password: S0litarY_man
     WORKER:
       type: sqlserver
       driver: "ODBC Driver 18 for SQL Server"
